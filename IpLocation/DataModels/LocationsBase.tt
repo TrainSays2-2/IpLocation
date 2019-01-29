@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" debug="True" hostSpecific="True"                            #>
+<#@ output extension=".generated.cs"                                                   #>
+<#@ include file="$(ProjectDir)LinqToDB.Templates\LinqToDB.PostgreSQL.Tools.ttinclude" #>
+<#@ include file="$(ProjectDir)LinqToDB.Templates\PluralizationService.ttinclude" #>
+<#
+	NamespaceName = "DataModels";
+
+	LoadPostgreSQLMetadata("127.0.0.1", "5432", "LocationsBase", "postgres", "masterkey");
+
+
+	GenerateModel();
+#>
